@@ -12,6 +12,7 @@ from datetime import datetime
 from time import sleep
 from PyQt5 import QtCore, QtGui, QtWidgets
 
+#Set paramaters and styling for UI
 class MainWindow(QMainWindow):
     def __init__(self):
         super(MainWindow, self).__init__()
@@ -50,7 +51,7 @@ class MainWindow(QMainWindow):
  
         self.setCentralWidget(chartview)
         
-
+    #Generate and display current weather values in table if button2 is clicked
     def button1_clicked(self):
         #Connect to MySQL
         mydb = mysql.connector.connect(
@@ -60,10 +61,10 @@ class MainWindow(QMainWindow):
         database="weather"
         )
         
-                 
+        #Define cursor object to interact with MySQL data         
         mycursor = mydb.cursor()
+        #Display temperature in Celsius if radio button depressed, otherwise display temperature in fahrenheit
         if self.radioButton.isChecked():
-            #Display temps in Celsius
             tempin = str(int(((random.randint(-20, 100)-32))*(5/9)))
             self.label_4.setText("Note: Temperatures displayed in degrees Celsius")
         else: 
@@ -87,7 +88,8 @@ class MainWindow(QMainWindow):
             hmsg.setWindowTitle("Humidity alert!")
             hmsg.setText("Humidity above set value!")
             x = hmsg.exec()
-
+        
+        #Pull most recent row of data from MySQL
         mycursor.execute("SELECT * from weather ORDER BY id DESC LIMIT 1")
         myresult = mycursor.fetchall()
         
@@ -99,7 +101,7 @@ class MainWindow(QMainWindow):
             self.tableWidget_2.setItem(tablerow, 2, QtWidgets.QTableWidgetItem(row[3]))
             tablerow+=1
           
-
+    #Display previous 10 weather values in table if button2 is clicked
     def button2_clicked(self):
         mydb = mysql.connector.connect(
         host="localhost",
