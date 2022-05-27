@@ -1,9 +1,8 @@
 # UCB-Pseudosensor-Project-1
 
-This is the first project required for Rapid Prototyping of Embedded Interface Designs (ECEA 5347) at the University of Colorado - Boulder. I have included three files:
-  1. UCB-Pseudosensor-Project1.pdf: This is a project overview, including requirements, assumptions, and other notes, as well as screenshots of the application in several scenarios.
-  2.  buttonTable.ui: Qt design file used for the initial layout of the user interface.
-  3.  weatherApp.py: Bread and butter python code clarifying paramaters for the UI design, generating weather data, and executing logic for events. Once weather data is generated,   it is stored in MySQL, and then retrieved as one instantaneous reading, or 10 readings, taken 1 second apart. The temperature and humidity values are pseudorandom per project     requirements.
+This is the first project required for Rapid Prototyping of Embedded Interface Designs (ECEA 5347) at the University of Colorado - Boulder. I have included a project summary pdf: UCB-Pseudosensor-Project1.pdf: This is a project overview, including requirements, assumptions, and other notes, as well as screenshots of the application in several scenarios.
+
+Code is only available upon request to prevent plagiarism.
 
 # What I learned
 
